@@ -1,51 +1,63 @@
 import './style.css'
+import { experienceData, skillsData, educationData, projectsData } from './data.js';
 
-document.querySelector('#app').innerHTML = `
-<section id="center">
-  <div class="hero">
-  </div>
-  <div>
-    <h1>Get started</h1>
-    <p>Edit <code>src/main.js</code> and save to test <code>HMR</code></p>
-  </div>
-  <button id="counter" type="button" class="counter"></button>
-</section>
+// --- Populate Content Dynamically ---
 
-<div class="ticks"></div>
+// Experience
+const experienceContainer = document.getElementById('experience-container');
+experienceData.forEach(exp => {
+    experienceContainer.innerHTML += `
+        <div class="experience-item">
+            <h3>${exp.title}</h3>
+            <p><strong>${exp.company}</strong> | <em>${exp.date}</em></p>
+            <p>${exp.description}</p>
+        </div>
+    `;
+});
 
-<section id="next-steps">
-  <div id="docs">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#documentation-icon"></use></svg>
-    <h2>Documentation</h2>
-    <p>Your questions, answered</p>
-    <ul>
-      <li>
-        <a href="https://vite.dev/" target="_blank">
-          <img class="logo" src="${viteLogo}" alt="" />
-          Explore Vite
-        </a>
-      </li>
-      <li>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-          <img class="button-icon" src="${javascriptLogo}" alt="">
-          Learn more
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div id="social">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#social-icon"></use></svg>
-    <h2>Connect with us</h2>
-    <p>Join the Vite community</p>
-    <ul>
-      <li><a href="https://github.com/vitejs/vite" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>GitHub</a></li>
-      <li><a href="https://chat.vite.dev/" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#discord-icon"></use></svg>Discord</a></li>
-      <li><a href="https://x.com/vite_js" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#x-icon"></use></svg>X.com</a></li>
-      <li><a href="https://bsky.app/profile/vite.dev" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#bluesky-icon"></use></svg>Bluesky</a></li>
-    </ul>
-  </div>
-</section>
+// Skills
+const skillsList = document.getElementById('skills-list');
+skillsData.forEach(skill => {
+    skillsList.innerHTML += `<li>${skill}</li>`;
+});
 
-<div class="ticks"></div>
-<section id="spacer"></section>
-`
+// Education
+const educationContainer = document.getElementById('education-container');
+educationData.forEach(edu => {
+    educationContainer.innerHTML += `
+        <div class="education-item">
+            <h3>${edu.institution}</h3>
+            <p><strong>${edu.degree}</strong> | <em>${edu.date}</em></p>
+            <p>Relevant Coursework: ${edu.coursework}</p>
+        </div>
+    `;
+});
+
+// Projects
+const projectsGrid = document.getElementById('projects-grid');
+projectsData.forEach(proj => {
+    projectsGrid.innerHTML += `
+        <div class="project-card">
+            <h3>${proj.title}</h3>
+            <p>${proj.description}</p>
+        </div>
+    `;
+});
+
+// --- Chat Logic ---
+const chatToggleBtn = document.getElementById('chat-toggle-btn');
+const chatCloseBtn = document.getElementById('chat-close-btn');
+const chatSidebar = document.getElementById('chat-sidebar');
+
+
+chatToggleBtn.addEventListener('click', () => {
+  if (chatSidebar.classList.contains('hidden')) {
+    chatSidebar.classList.remove('hidden');
+  } else {
+    chatSidebar.classList.add('hidden');
+  }    
+});
+
+chatCloseBtn.addEventListener('click', () => {
+    chatSidebar.classList.add('hidden');
+});

@@ -5,38 +5,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suryansh Goyal | Personal Website</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
     <header>
         <nav>
             <strong>Surigo Site</strong>
+            <div class="nav-links">
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
         </nav>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section id="hero">
+        <!-- Bio Section -->
+        <section id="bio">
             <h1>Suryansh Goyal</h1>
-            <p>Software Engineer. Problem Solver. Student.</p>
+            <h2>Software Engineer. Problem Solver. Relentless Debugger.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </section>
 
-        <!-- Chatbot Interface Section -->
-        <section id="chat-section">
-            <h2>Chat with my AI Clone</h2>
-            
-            <!-- Where the conversation will appear -->
-            <div id="chat-box" style="border: 1px solid #ccc; height: 200px; overflow-y: scroll; padding: 10px; margin-bottom: 10px;">
-                <p><em>AI: Ask me anything about Suryansh's experience!</em></p>
-            </div>
+        <!-- Experience Section -->
+        <section id="experience" class="content-section">
+            <h2>Experience</h2>
+            <div id="experience-container"></div>
+        </section>
 
-            <!-- Form for user input -->
-            <form id="chat-form">
-                <input type="text" id="user-input" placeholder="Type a message..." required>
-                <button type="submit" id="send-btn">Send</button>
-            </form>
+        <!-- Skill Set Section -->
+        <section id="skills" class="content-section">
+            <h2>Skill Set</h2>
+            <ul id="skills-list" class="skills-list"></ul>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="content-section">
+            <h2>Education</h2>
+            <div id="education-container"></div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="content-section">
+            <h2>Projects</h2>
+            <div id="projects-grid" class="projects-grid"></div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="content-section">
+            <h2>Contact Info</h2>
+            <div class="contact-links">
+                <a href="mailto:suryanshg47@gmail.com" class="contact-link">
+                    <i class="fa-solid fa-envelope"></i>
+                    Email
+                </a>
+                <a href="https://www.linkedin.com/in/suryanshgoyal/" target="_blank" class="contact-link">
+                    <i class="fa-brands fa-linkedin"></i>
+                    LinkedIn
+                </a>
+                <a href="https://www.github.com/Suryanshg" target="_blank" class="contact-link">
+                    <i class="fa-brands fa-github"></i>
+                    GitHub
+                </a>
+            </div>
         </section>
     </main>
+
+    <!-- Chatbot Interface Section -->
+    <button id="chat-toggle-btn">Chat with SurigoBot</button>
+    <div id="chat-sidebar" class="hidden">
+        <div class="chat-header">
+            <h2>SurigoBot</h2>
+            <button id="chat-close-btn">&times;</button> <!-- &times; displays 'x' (multiplicative sign) -->
+        </div>
+        
+        <!-- Where the conversation will appear -->
+        <div id="chat-box">
+            <p><em>SurigoBot: Ask me anything about Suryansh Goyal :)</em></p>
+        </div>
+
+        <!-- Form for user input -->
+        <form id="chat-form">
+            <input type="text" id="user-input" placeholder="Type a message..." required>
+            <button type="submit" id="send-btn">Send</button>
+        </form>
+    </div>
 
     <!-- Connects to a JavaScript logic file -->
     <script type="module" src="src/main.js"></script>
