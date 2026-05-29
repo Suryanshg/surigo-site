@@ -1,7 +1,11 @@
 import './style.css'
-import { experienceData, skillsData, educationData, projectsData } from './data.js';
+import { bioText, experienceData, skillsData, educationData, projectsData } from './data.js';
 
 // --- Populate Content Dynamically ---
+
+// Bio Text
+const bioTextContainer = document.getElementById('bio-text-container');
+bioTextContainer.innerHTML += `<p>${bioText}</p>`
 
 // Experience
 const experienceContainer = document.getElementById('experience-container');
@@ -16,9 +20,17 @@ experienceData.forEach(exp => {
 });
 
 // Skills
-const skillsList = document.getElementById('skills-list');
-skillsData.forEach(skill => {
-    skillsList.innerHTML += `<li>${skill}</li>`;
+const skillsContainer = document.getElementById('skills-container');
+skillsData.forEach(category => {
+    const listItems = category.skillsList.map(skill => `<li>${skill}</li>`).join('');
+    skillsContainer.innerHTML += `
+        <div class="skill-category">
+            <h3>${category.skillType}</h3>
+            <ul class="skills-list">
+                ${listItems}
+            </ul>
+        </div>
+    `;
 });
 
 // Education

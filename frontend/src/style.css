@@ -116,6 +116,17 @@ main {
 }
 
 /* Skills List */
+.skill-category {
+  margin-bottom: 2rem;
+}
+
+.skill-category h3 {
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
 .skills-list {
   display: flex;
   flex-wrap: wrap;
