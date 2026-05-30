@@ -12,8 +12,10 @@ const experienceContainer = document.getElementById('experience-container');
 experienceData.forEach(exp => {
     experienceContainer.innerHTML += `
         <div class="experience-item">
-            <h3>${exp.title}</h3>
-            <p><strong>${exp.company}</strong> | <em>${exp.date}</em></p>
+            <div class="experience-header">
+                <span><strong>${exp.title}</strong> | <strong>${exp.company}</strong></span>
+                <span><em>${exp.date}</em></span>
+            </div>
             <p>${exp.description}</p>
         </div>
     `;
