@@ -219,52 +219,6 @@ main {
   font-weight: 500;
 }
 
-/* Skills List */
-.skill-category {
-  margin-bottom: 2.5rem;
-  background-color: #fff;
-  border: 3px solid var(--text-color);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 6px 6px 0px 0px var(--text-color);
-}
-
-.skill-category h3 {
-  text-align: center;
-  color: var(--text-color);
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.skills-list li {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 700;
-  border: 3px solid var(--text-color);
-  box-shadow: 4px 4px 0px 0px var(--text-color);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.skills-list li:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px 0px var(--text-color);
-}
 
 /* Projects Grid */
 .projects-grid {
@@ -300,6 +254,70 @@ main {
   color: var(--text-color);
   margin-bottom: 0;
   font-weight: 500;
+}
+
+/* Skills List */
+/* .skill-card {
+  margin-bottom: 2.5rem;
+  background-color: #fff;
+  border: 3px solid var(--text-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 6px 6px 0px 0px var(--text-color);
+}
+
+.skill-category h3 {
+  text-align: center;
+  color: var(--text-color);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+} */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.skill-card {
+  background-color: #fff;
+  border: 3px solid var(--text-color);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 6px 6px 0px 0px var(--text-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skills-list li {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  border: 3px solid var(--text-color);
+  box-shadow: 4px 4px 0px 0px var(--text-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skills-list li:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px var(--text-color);
 }
 
 /* Chat Sidebar Styles */

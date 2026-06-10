@@ -21,20 +21,6 @@ experienceData.forEach(exp => {
     `;
 });
 
-// Skills
-const skillsContainer = document.getElementById('skills-container');
-skillsData.forEach(category => {
-    const listItems = category.skillsList.map(skill => `<li>${skill}</li>`).join('');
-    skillsContainer.innerHTML += `
-        <div class="skill-category">
-            <h3>${category.skillType}</h3>
-            <ul class="skills-list">
-                ${listItems}
-            </ul>
-        </div>
-    `;
-});
-
 // Education
 const educationContainer = document.getElementById('education-container');
 educationData.forEach(edu => {
@@ -54,6 +40,20 @@ projectsData.forEach(proj => {
         <div class="project-card">
             <h3>${proj.title}</h3>
             <p>${proj.description}</p>
+        </div>
+    `;
+});
+
+// Skills
+const skillsContainer = document.getElementById('skills-grid');
+skillsData.forEach(category => {
+    const listItems = category.skillsList.map(skill => `<li>${skill}</li>`).join('');
+    skillsContainer.innerHTML += `
+        <div class="skill-card">
+            <h3>${category.skillType}</h3>
+            <ul class="skills-list">
+                ${listItems}
+            </ul>
         </div>
     `;
 });

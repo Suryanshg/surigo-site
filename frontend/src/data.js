@@ -68,31 +68,31 @@ export const educationData = [
 
 export const projectsData = [
     {
-        title: "Project One",
+        title: "AniZenith",
         description: "A modern web application built with React, Vite, and Node.js. Enables real-time data sync and user collaboration.",
         link: "",
         skills : []
     },
     {
-        title: "Project Two",
+        title: "Yelp Restaurant QA Agent",
         description: "A machine learning tool that predicts data trends using Python, scikit-learn, and Pandas.",
         link: "",
         skills : []
     },
     {
-        title: "Project Three",
+        title: "Soft Prompt Translator",
         description: "A responsive portfolio template designed to be completely customizable and lightweight.",
         link: "",
         skills : []
     },
     {
-        title: "Project Four",
+        title: "AI Car Racing",
         description: "A responsive portfolio template designed to be completely customizable and lightweight.",
         link: "",
         skills : []
     },
     {
-        title: "Project Five",
+        title: "ShakespeareGPT",
         description: "A responsive portfolio template designed to be completely customizable and lightweight.",
         link: "",
         skills : []
