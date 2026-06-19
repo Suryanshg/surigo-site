@@ -10,10 +10,21 @@ bioTextContainer.innerHTML += `<p>${bioText}</p>`
 // Experience
 const experienceContainer = document.getElementById('experience-container');
 experienceData.forEach(exp => {
+    // allow either a FontAwesome class (`logoClass`) or an image path (`logoPath`)
+    let logoHTML = '';
+    if (exp.logoClass) {
+        logoHTML = `<i class="${exp.logoClass} experience-logo" aria-hidden="true"></i>`;
+    } else if (exp.logoPath) {
+        logoHTML = `<img src="${exp.logoPath}" alt="${exp.company} logo" class="experience-logo">`;
+    }
+
     experienceContainer.innerHTML += `
         <div class="experience-item">
             <div class="experience-header">
-                <span><strong>${exp.title}</strong> | <strong>${exp.company}</strong></span>
+                <div class="exp-left">
+                    ${logoHTML}
+                    <span class="exp-title"><strong>${exp.title}</strong> | <strong>${exp.company}</strong></span>
+                </div>
                 <span><em>${exp.date}</em></span>
             </div>
             <p>${exp.description}</p>
@@ -27,8 +38,9 @@ educationData.forEach(edu => {
     educationContainer.innerHTML += `
         <div class="education-item">
             <h3>${edu.institution}</h3>
-            <p><strong>${edu.degree}</strong> | <em>${edu.date}</em></p>
-            <p>Relevant Coursework: ${edu.coursework}</p>
+            <p><strong>${edu.degree}</strong> | <b>GPA</b>: ${edu.gpa} | <b>Graduation: </b>${edu.date} </p>
+            <p><u>Relevant Coursework</u>: ${edu.coursework}</p>
+            <p><u>Awards</u>: ${edu.awards}</p>
         </div>
     `;
 });
