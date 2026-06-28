@@ -1,11 +1,35 @@
 import './style.css'
-import { bioText, experienceData, skillsData, educationData, projectsData } from './data.js';
+import { bioSections, funFacts, experienceData, skillsData, educationData, projectsData } from './data.js';
 
 // --- Populate Content Dynamically ---
 
-// Bio Text
-const bioTextContainer = document.getElementById('bio-text-container');
-bioTextContainer.innerHTML += `<p>${bioText}</p>`
+// Bio Sections
+const bioSectionsContainer = document.getElementById('bio-sections');
+bioSections.forEach(section => {
+    bioSectionsContainer.innerHTML += `
+        <div class="bio-card">
+            <div class="bio-card-header">
+                <i class="${section.icon}"></i>
+                <h3>${section.title}</h3>
+            </div>
+            <p>${section.content}</p>
+        </div>
+    `;
+});
+
+// Fun Section
+const funSectionContainer = document.getElementById('fun-section-container');
+const funItems = funFacts.items.map(item => `
+    <div class="fun-item">
+        <span class="fun-emoji">${item.emoji}</span>
+        <span>${item.label}</span>
+    </div>
+`).join('');
+funSectionContainer.innerHTML = `
+    <h3>${funFacts.title}</h3>
+    <p class="fun-intro">${funFacts.intro}</p>
+    <div class="fun-grid">${funItems}</div>
+`;
 
 // Experience
 const experienceContainer = document.getElementById('experience-container');
@@ -48,10 +72,22 @@ educationData.forEach(edu => {
 // Projects
 const projectsGrid = document.getElementById('projects-grid');
 projectsData.forEach(proj => {
+    const githubBtn = proj.link
+        ? `<a href="${proj.link}" target="_blank" class="project-github-link" aria-label="GitHub">
+               <i class="fa-brands fa-github"></i>
+           </a>`
+        : '';
+
+    const badges = proj.skills.map(s => `<span class="project-badge">${s}</span>`).join('');
+
     projectsGrid.innerHTML += `
         <div class="project-card">
-            <h3>${proj.title}</h3>
+            <div class="project-header">
+                <h3>${proj.title}</h3>
+                ${githubBtn}
+            </div>
             <p>${proj.description}</p>
+            <div class="project-badges">${badges}</div>
         </div>
     `;
 });

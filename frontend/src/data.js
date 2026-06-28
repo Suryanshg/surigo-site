@@ -1,18 +1,31 @@
-export const bioText = `
-<p>
-<p>About Me</p>
-I am currently pursuing an MS in CS at Worcester Polytechnic Institute, building upon my BS in CS from the same institution. Before returning to academia, I spent three years engineering enterprise backend systems at Visa Inc. I specialize in building highly available, distributed architectures, having engineered reactive microservices and Agentic AI solutions.
-</p>
+export const bioSections = [
+    {
+        icon: "fa-solid fa-user",
+        title: "About Me",
+        content: "I am currently pursuing an MS in CS at Worcester Polytechnic Institute, building upon my BS in CS from the same institution. Before returning to academia, I spent three years engineering enterprise backend systems at Visa Inc. I specialize in building highly available, distributed architectures, having engineered reactive microservices and Agentic AI solutions."
+    },
+    {
+        icon: "fa-solid fa-lightbulb",
+        title: "Problem Solver",
+        content: "My technical interests lie in scalable software engineering and applied AI / ML. I thrive on translating theoretical concepts into production-ready systems. My recent academic research includes authoring a paper on soft prompt interpretability—currently under review for the EMNLP conference—and architecting an Agentic Graph RAG system for Question-Answering on Yelp Dataset. At Visa Inc., I have developed Agentic AI developer tools utilizing LangChain and Python, including a CLI for automated code remediation and an IntelliJ plugin for internal code search."
+    },
+    {
+        icon: "fa-solid fa-bug",
+        title: "Relentless Debugger",
+        content: "I am obsessed with system stability, observability, and optimization. I have a proven track record of identifying and resolving complex infrastructure bottlenecks through targeted performance testing; in one instance, this approach increased system throughput by ~50% and cut P99 latencies by ~30%. Whether I am refactoring legacy Java codebases to slash build times by 72% or engineering comprehensive observability pipelines using Prometheus and Grafana, I build systems designed to perform flawlessly under pressure."
+    }
+];
 
-<p>
-<p>Problem Solver</p>
-My technical interests lie in scalable software engineering and applied AI / ML. I thrive on translating theoretical concepts into production-ready systems. My recent academic research includes authoring a paper on soft prompt interpretability—currently under review for the EMNLP conference—and architecting an Agentic Graph RAG system for Question-Answering on Yelp Dataset. At Visa Inc,, I have developed Agentic AI developer tools utilizing LangChain and Python, including a CLI for automated code remediation and an IntelliJ plugin for internal code search.  
-</p>
-
-<p>
-<p>Relentless Debugger</p>
-I am obsessed with system stability, observability, and optimization. I have a proven track record of identifying and resolving complex infrastructure bottlenecks through targeted performance testing; in one instance, this approach increased system throughput by ~50% and cut P99 latencies by ~30%. Whether I am refactoring legacy Java codebases to slash build times by 72% or engineering comprehensive observability pipelines using Prometheus and Grafana, I build systems designed to perform flawlessly under pressure.
-</p>`
+export const funFacts = {
+    title: "Beyond the Code",
+    intro: "When I'm not building systems or debugging issues, you'll find me...",
+    items: [
+        { emoji: "⚽", label: "Cheering for Real Madrid!" },
+        { emoji: "🎱🥢", label: "Playing 8-Ball Pool" },
+        { emoji: "💪🏼", label: "Hitting the Gym" },
+        { emoji: "🍔", label: "Exploring Food" },
+    ]
+};
 
 
 export const experienceData = [
@@ -97,37 +110,31 @@ export const projectsData = [
     {
         title: "AniZenith",
         description: "A modern web application built with React, Vite, and Node.js. Enables real-time data sync and user collaboration.",
-        link: "",
-        skills : []
+        link: "https://github.com/ShafathZ/AniZenithProject", // TODO: update or remove link
+        skills: ["TODO: skill", "TODO: skill"]
     },
     {
         title: "Yelp Restaurant QA Agent",
         description: "A machine learning tool that predicts data trends using Python, scikit-learn, and Pandas.",
-        link: "",
-        skills : []
+        link: "https://github.com/Suryanshg/Yelp-Restaurant-QA-Agent", // TODO: add GitHub link
+        skills: ["TODO: skill", "TODO: skill"]
     },
     {
         title: "Soft Prompt Translator",
         description: "A responsive portfolio template designed to be completely customizable and lightweight.",
-        link: "",
-        skills : []
+        link: "", // TODO: add GitHub link
+        skills: ["TODO: skill", "TODO: skill"]
     },
     {
         title: "AI Car Racing",
         description: "A responsive portfolio template designed to be completely customizable and lightweight.",
-        link: "",
-        skills : []
+        link: "", // TODO: add GitHub link
+        skills: ["TODO: skill", "TODO: skill"]
     },
     {
         title: "ShakespeareGPT",
         description: "A responsive portfolio template designed to be completely customizable and lightweight.",
-        link: "",
-        skills : []
-    },
-    {
-        title: "Project Siz",
-        description: "A responsive portfolio template designed to be completely customizable and lightweight.",
-        link: "",
-        skills : []
+        link: "", // TODO: add GitHub link
+        skills: ["TODO: skill", "TODO: skill"]
     },
 ];
