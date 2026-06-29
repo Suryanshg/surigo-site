@@ -133,6 +133,12 @@ main {
   display: flex;
   align-items: center;
   gap: 3rem;
+  background: linear-gradient(135deg, #ffffff 0%, #eef4ff 100%);
+  border: 3px solid var(--text-color);
+  border-top: 6px solid var(--primary-color);
+  border-radius: 12px;
+  padding: 2.5rem 3rem;
+  box-shadow: 6px 6px 0px 0px var(--text-color);
 }
 
 .profile-pic {
@@ -165,6 +171,54 @@ main {
   font-weight: 600;
   color: #666;
   line-height: 1.5;
+}
+
+.tagline-highlight {
+  color: var(--primary-color);
+  white-space: nowrap;
+}
+
+/* Hero CTA Buttons */
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: 2px solid var(--text-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.hero-btn-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+  box-shadow: 4px 4px 0px 0px var(--text-color);
+}
+
+.hero-btn-primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px var(--text-color);
+}
+
+.hero-btn-secondary {
+  background-color: #fff;
+  color: var(--text-color);
+  box-shadow: 4px 4px 0px 0px var(--text-color);
+}
+
+.hero-btn-secondary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px var(--text-color);
 }
 
 /* Bio detail cards */
