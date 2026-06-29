@@ -81,13 +81,22 @@ projectsData.forEach(proj => {
            </a>`
         : '';
 
+    const pdfBtn = proj.pdfLink
+        ? `<a href="${proj.pdfLink}" target="_blank" class="project-github-link" aria-label="PDF Document">
+               <i class="fa-solid fa-file-pdf"></i>
+           </a>`
+        : '';
+
     const badges = proj.skills.map(s => `<span class="project-badge">${s}</span>`).join('');
 
     projectsGrid.innerHTML += `
         <div class="project-card">
             <div class="project-header">
                 <h3>${proj.title}</h3>
-                ${githubBtn}
+                <div style="display: flex; gap: 8px;">
+                    ${pdfBtn}
+                    ${githubBtn}
+                </div>
             </div>
             <p>${proj.description}</p>
             <div class="project-badges">${badges}</div>
