@@ -42,6 +42,8 @@ experienceData.forEach(exp => {
         logoHTML = `<img src="${exp.logoPath}" alt="${exp.company} logo" class="experience-logo">`;
     }
 
+    const expSkillBadges = (exp.skills || []).map(s => `<span class="exp-skill-badge">${s}</span>`).join('');
+
     experienceContainer.innerHTML += `
         <div class="experience-item">
             <div class="experience-header">
@@ -52,6 +54,7 @@ experienceData.forEach(exp => {
                 <span><em>${exp.date}</em></span>
             </div>
             <p>${exp.description}</p>
+            ${expSkillBadges ? `<div class="exp-skills">${expSkillBadges}</div>` : ''}
         </div>
     `;
 });

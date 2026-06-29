@@ -34,28 +34,32 @@ export const experienceData = [
         company: "Visa Inc.",
         logoClass: "fa-brands fa-cc-visa",
         date: "July 2024 - June 2025",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        description: "I spearheaded initiatives that merged enterprise-grade backend systems with cutting-edge Generative AI. A major focus of my work involved optimizing developer velocity by building intelligent internal tooling. For example, I engineered an Agentic AI CLI tool using Python and LangChain that automated Java code smell remediation via SonarQube reports, explicitly incorporating a human-in-the-loop mechanism so developers could steer or override the AI's fixes. I also prototyped an Agentic AI IntelliJ plugin for internal code search, leveraging LangChain, TreeSitter, and a MongoDB-backed indexing pipeline to ground LLM responses directly in our internal platform libraries.",
+        skills: ["TODO: Skill 1", "TODO: Skill 2", "TODO: Skill 3", "TODO: Skill 4", "TODO: Skill 5"]
     },
     {
         title: "Software Engineer",
         company: "Visa Inc.",
         logoClass: "fa-brands fa-cc-visa",
         date: "June 2022 - June 2024",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        skills: ["TODO: Skill 1", "TODO: Skill 2", "TODO: Skill 3", "TODO: Skill 4", "TODO: Skill 5"]
     },
     {
         title: "Software Engineer Intern",
         company: "Visa Inc.",
         logoClass: "fa-brands fa-cc-visa",
         date: "May 2021 - August 2021",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        skills: ["TODO: Skill 1", "TODO: Skill 2", "TODO: Skill 3", "TODO: Skill 4", "TODO: Skill 5"]
     },
     {
         title: "Software Engineer Intern",
         company: "Visa Inc.",
         logoClass: "fa-brands fa-cc-visa",
         date: "May 2020 - July 2020",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        skills: ["TODO: Skill 1", "TODO: Skill 2", "TODO: Skill 3", "TODO: Skill 4", "TODO: Skill 5"]
     }
 ];
 
@@ -111,30 +115,30 @@ export const projectsData = [
         title: "AniZenith",
         description: "A modern web application built with React, Vite, and Node.js. Enables real-time data sync and user collaboration.",
         link: "https://github.com/ShafathZ/AniZenithProject", // TODO: update or remove link
-        skills: ["TODO: skill", "TODO: skill"]
+        skills: ["TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill"]
     },
     {
         title: "Yelp Restaurant QA Agent",
         description: "A machine learning tool that predicts data trends using Python, scikit-learn, and Pandas.",
         link: "https://github.com/Suryanshg/Yelp-Restaurant-QA-Agent", // TODO: add GitHub link
-        skills: ["TODO: skill", "TODO: skill"]
+        skills: ["TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill"]
     },
     {
         title: "Soft Prompt Translator",
         description: "A responsive portfolio template designed to be completely customizable and lightweight.",
         link: "", // TODO: add GitHub link
-        skills: ["TODO: skill", "TODO: skill"]
+        skills: ["TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill"]
     },
     {
         title: "AI Car Racing",
         description: "A responsive portfolio template designed to be completely customizable and lightweight.",
         link: "", // TODO: add GitHub link
-        skills: ["TODO: skill", "TODO: skill"]
+        skills: ["TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill"]
     },
     {
         title: "ShakespeareGPT",
         description: "A responsive portfolio template designed to be completely customizable and lightweight.",
         link: "", // TODO: add GitHub link
-        skills: ["TODO: skill", "TODO: skill"]
+        skills: ["TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill"]
     },
 ];
