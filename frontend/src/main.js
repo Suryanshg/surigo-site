@@ -1,21 +1,7 @@
 import './style.css'
-import { bioSections, funFacts, experienceData, skillsData, educationData, projectsData } from './data.js';
+import { funFacts, experienceData, skillsData, educationData, projectsData } from './data.js';
 
 // --- Populate Content Dynamically ---
-
-// Bio Sections
-const bioSectionsContainer = document.getElementById('bio-sections');
-bioSections.forEach(section => {
-    bioSectionsContainer.innerHTML += `
-        <div class="bio-card">
-            <div class="bio-card-header">
-                <i class="${section.icon}"></i>
-                <h3>${section.title}</h3>
-            </div>
-            <p>${section.content}</p>
-        </div>
-    `;
-});
 
 // Fun Section
 const funSectionContainer = document.getElementById('fun-section-container');
@@ -62,12 +48,32 @@ experienceData.forEach(exp => {
 // Education
 const educationContainer = document.getElementById('education-container');
 educationData.forEach(edu => {
+    const awardBadges = edu.awards
+        .split(', ')
+        .map(a => `<span class="edu-award-badge">${a.trim()}</span>`)
+        .join('');
+
+    const courseTags = edu.coursework
+        .split(', ')
+        .map(c => `<span class="edu-course-tag">${c.trim()}</span>`)
+        .join('');
+
     educationContainer.innerHTML += `
         <div class="education-item">
-            <h3>${edu.institution}</h3>
-            <p><strong>${edu.degree}</strong> | <b>GPA</b>: ${edu.gpa} | <b>Graduation: </b>${edu.date} </p>
-            <p><u>Relevant Coursework</u>: ${edu.coursework}</p>
-            <p><u>Awards</u>: ${edu.awards}</p>
+            <div class="edu-header">
+                <div class="edu-header-left">
+                    <h3>${edu.institution}</h3>
+                    <div class="edu-meta">
+                        <span class="edu-degree">${edu.degree}</span>
+                        <span class="edu-date">${edu.date}</span>
+                    </div>
+                </div>
+                <div class="edu-gpa-badge">GPA: ${edu.gpa}</div>
+            </div>
+            <div class="edu-section-label">Awards</div>
+            <div class="edu-awards">${awardBadges}</div>
+            <div class="edu-section-label">Coursework</div>
+            <div class="edu-coursework">${courseTags}</div>
         </div>
     `;
 });
@@ -89,33 +95,55 @@ projectsData.forEach(proj => {
 
     const badges = proj.skills.map(s => `<span class="project-badge">${s}</span>`).join('');
 
+    const initials = proj.title.split(' ').slice(0, 2).map(w => w[0] || '').join('').toUpperCase();
+    const screenshotHTML = proj.screenshot
+        ? `<img src="${proj.screenshot}" alt="${proj.title} screenshot">`
+        : `<div class="project-screenshot-placeholder">${initials}</div>`;
+
     projectsGrid.innerHTML += `
         <div class="project-card">
-            <div class="project-header">
-                <h3>${proj.title}</h3>
-                <div style="display: flex; gap: 8px;">
-                    ${pdfBtn}
-                    ${githubBtn}
+            <div class="project-screenshot">${screenshotHTML}</div>
+            <div class="project-body">
+                <div class="project-header">
+                    <h3>${proj.title}</h3>
+                    <div class="project-links">
+                        ${pdfBtn}
+                        ${githubBtn}
+                    </div>
                 </div>
+                <p>${proj.description}</p>
+                <div class="project-badges">${badges}</div>
             </div>
-            <p>${proj.description}</p>
-            <div class="project-badges">${badges}</div>
         </div>
     `;
 });
 
-// Skills
+
+// Skills — tabbed interface
 const skillsContainer = document.getElementById('skills-grid');
-skillsData.forEach(category => {
-    const listItems = category.skillsList.map(skill => `<li>${skill}</li>`).join('');
-    skillsContainer.innerHTML += `
-        <div class="skill-card">
-            <h3>${category.skillType}</h3>
-            <ul class="skills-list">
-                ${listItems}
-            </ul>
-        </div>
-    `;
+
+const tabsHTML = skillsData.map((category, i) =>
+    `<button class="skill-tab${i === 0 ? ' active' : ''}" data-index="${i}">${category.skillType}</button>`
+).join('');
+
+const panelsHTML = skillsData.map((category, i) => {
+    const badges = category.skillsList.map(s => `<span class="skill-badge">${s}</span>`).join('');
+    return `<div class="skills-panel${i === 0 ? ' active' : ''}" data-index="${i}">${badges}</div>`;
+}).join('');
+
+skillsContainer.innerHTML = `
+    <div class="skills-tabs">${tabsHTML}</div>
+    <div class="skills-display">${panelsHTML}</div>
+`;
+
+skillsContainer.querySelectorAll('.skill-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        const idx = tab.dataset.index;
+        skillsContainer.querySelectorAll('.skill-tab').forEach(t => t.classList.remove('active'));
+        skillsContainer.querySelectorAll('.skills-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        skillsContainer.querySelector(`.skills-panel[data-index="${idx}"]`).classList.add('active');
+    });
 });
 
 // --- Chat Logic ---

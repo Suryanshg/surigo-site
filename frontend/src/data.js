@@ -20,10 +20,11 @@ export const funFacts = {
     title: "Beyond the Code",
     intro: "When I'm not building systems or debugging issues, you'll find me...",
     items: [
-        { emoji: "⚽", label: "Cheering for Real Madrid!" },
-        { emoji: "🎱🥢", label: "Playing 8-Ball Pool" },
-        { emoji: "💪🏼", label: "Hitting the Gym" },
-        { emoji: "🍔", label: "Exploring Food" },
+        { emoji: "⚽", label: "Cheering for Real Madrid" },
+        { emoji: "💪🏼", label: "Hypertrophy Training" },
+        { emoji: "🍔", label: "Culinary Exploration" },
+        { emoji: "🎱", label: "Cue sports tactician" },
+        { emoji: "🧑‍🍳", label: "Kitchen Alchemist:" },
     ]
 };
 
@@ -81,12 +82,12 @@ export const skillsData = [
         skillsList: ["MongoDB", "MySQL", "PostgreSQL", "Neo4j", "ChromaDB"]
     },
     {
-        skillType: "DevOps & Observability",
+        skillType: "DevOps",
         skillsList: ["Git", "Linux", "Docker", "GitHub Actions", "AWS", "GCP", "Azure", "Grafana", "Prometheus", "Splunk", "JMeter", "VisualVM"]
     },
     {
         skillType: "Agentic Engineering",
-        skillsList: ["Claude Code", "GitHub Copilot", "Aider"]
+        skillsList: ["Claude Code", "Antigravity CLI", "GitHub Copilot"]
     },
 
 ];
@@ -114,8 +115,9 @@ export const projectsData = [
     {
         title: "Soft Prompts Interpretability (Research)",
         description: "Authored EMNLP-submitted research on translating continuous soft prompt embeddings into human-readable text using a LoRA fine-tuned Llama-3.1-8B model. Engineered massive data pipelines handling 2.75M+ synthetic tokens via vLLM and a custom SQLite schema, validating model interpretability through activation patching and ROUGE heatmaps.",
-        link: "", 
-        pdfLink: "https://arxiv.org/pdf/2605.27642", // Arxiv PDF link
+        link: "",
+        pdfLink: "https://arxiv.org/pdf/2605.27642",
+        screenshot: "src/assets/images/SoftPromptsWorkflow.png", // e.g. "src/assets/screenshots/soft-prompts.png"
         skills: ["LLM Fine-Tuning (LoRA)", "vLLM", "Dataset Engineering", "SQLite", "PyTorch", "Hugging Face"]
     },
     {
@@ -123,6 +125,7 @@ export const projectsData = [
         description: "Architected a RAG-powered anime recommendation engine with a FastAPI backend, JavaScript frontend, and MongoDB Vector Search. Implemented a dual-inference cloud/local fallback engine and automated full deployment across multi-cloud infrastructure (AWS, GCP, Azure) via Docker, GitHub Actions CI/CD, and Prometheus/Grafana observability.",
         link: "https://github.com/ShafathZ/AniZenithProject",
         pdfLink: "",
+        screenshot: "src/assets/images/Anizenith.png", // e.g. "src/assets/screenshots/anizenith.png"
         skills: ["Multi-Cloud Deployment (AWS / GCP / Azure)", "FastAPI", "GitHub Actions", "Docker", "MongoDB Vector Search"]
     },
     {
@@ -130,6 +133,7 @@ export const projectsData = [
         description: "Architected a multi-agent Graph RAG system using LangGraph and Gemini to dynamically execute Cypher searches on a Neo4j knowledge graph built from Yelp data. Containerized the pipeline via Docker with strict read-only LLM tool constraints, achieving a ~3x improvement in factual accuracy over standard RAG baselines via an LLM-as-a-Judge evaluation framework.",
         link: "https://github.com/Suryanshg/Yelp-Restaurant-QA-Agent",
         pdfLink: "",
+        screenshot: "src/assets/images/AgenticGraphRAG.png", // e.g. "src/assets/screenshots/yelp-qa.png"
         skills: ["LangGraph", "Neo4j", "Graph RAG", "Agentic RAG", "Docker", "LLM-as-a-Judge Eval"]
     },
     {
@@ -137,6 +141,8 @@ export const projectsData = [
         description: "Developed and trained competitive Proximal Policy Optimization (PPO) and Advantage Actor-Critic (A2C) agents using PyTorch and Gymnasium. Engineered a custom reward-shaping wrapper that boosted mean rewards by 62%, testing diverse CNN, attention, and residual architectures to achieve an average evaluation score of 829.",
         link: "https://github.com/Suryanshg/AI-Car-Racing",
         pdfLink: "",
+        screenshot: "src/assets/images/AI-CarRacing.png", // e.g. "src/assets/screenshots/ai-car-racing.png"
         skills: ["Deep Reinforcement Learning (PPO / A2C)", "PyTorch", "OpenAI Gymnasium", "Reward Shaping"]
     }
 ];
+

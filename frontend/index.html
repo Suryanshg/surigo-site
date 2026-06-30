@@ -7,6 +7,10 @@
     <title>Suryansh Goyal | Personal Website</title>
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Dela Gothic One — display font for headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -56,17 +60,31 @@
     <main>
         <!-- Bio Section -->
         <section id="bio">
-            <!-- Hero: pic + tagline side by side -->
+            <!-- Hero: pic + name/tagline side by side -->
             <div class="bio-hero">
-                <img src="src/assets/ProfilePicture.jpg" alt="Suryansh Goyal Profile" class="profile-pic">
+                <div class="hero-pic-wrapper">
+                    <img src="src/assets/images/ProfilePicture.jpg" alt="Suryansh Goyal Profile" class="profile-pic">
+                </div>
                 <div class="bio-hero-text">
-                    <h1>Suryansh Goyal</h1>
-                    <h2>Software Engineer. Problem Solver. <span class="tagline-highlight">Relentless Debugger.</span></h2>
+                    <h1>Suryansh<br>Goyal</h1>
+                    <div class="role-strip">
+                        <span class="tagline-highlight">Software Engineer</span>
+                        <span class="role-dot">·</span>
+                        <span class="tagline-highlight">AI Researcher</span>
+                        <span class="role-dot">·</span>
+                        <span class="tagline-highlight">Relentless Debugger</span>
+                    </div>
+                    <p class="hero-about">
+                        MS CS student at WPI building on 3 years of engineering enterprise software at Visa Inc. 
+                        Specializing in scalable distributed systems and applied AI — currently researching LLM interpretability and ASR Correction Intelligence.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-chip"><strong>Ex-SWE</strong> (3 yrs) @ Visa Inc.</div>
+                        <!-- <div class="stat-chip"><strong>4.0 GPA</strong> @ WPI</div> -->
+                        <div class="stat-chip"><strong>EMNLP Submission</strong> (In-Review)</div>
+                    </div>
                 </div>
             </div>
-
-            <!-- Structured bio cards -->
-            <div class="bio-cards" id="bio-sections"></div>
 
             <!-- Fun personal section -->
             <div class="fun-section" id="fun-section-container"></div>
@@ -118,7 +136,7 @@
     </main>
 
     <!-- Chatbot Interface Section -->
-    <button id="chat-toggle-btn">Chat with SurigoBot</button>
+    <button id="chat-toggle-btn">Chat with me! (Coming Soon)</button>
     <div id="chat-sidebar" class="hidden">
         <div class="chat-header">
             <h2>SurigoBot</h2>
