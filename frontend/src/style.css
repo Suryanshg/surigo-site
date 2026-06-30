@@ -4,7 +4,7 @@
   color-scheme: light dark;
   --bg-color: #faf9f6;        /* Offwhite background */
   --text-color: #333;
-  --primary-color: #2563EB;   /* Richer blue */
+  --primary-color: #5a8af1;   /* Richer blue */
   --accent-color: #F59E0B;    /* Amber — used for highlights & shadows */
 }
 
@@ -15,7 +15,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 85%; /* global layout scale reduction */
+  font-size: 100%; /* global layout scale reduction */
 }
 
 body {
@@ -101,20 +101,9 @@ nav {
 }
 
 /* Responsive: stack navbar on small screens */
-/* @media (max-width: 700px) {
-  nav {
-    grid-template-columns: 1fr;
-    row-gap: 8px;
-    justify-items: center;
-  }
-  .nav-left, .nav-right { justify-self: center; }
-  .title-name { order: 0; }
-  .nav-links { flex-wrap: wrap; gap: 8px; justify-content: center; }
-} */
-
-
-nav i {
-  font-size: 24px;
+nav i { 
+  font-size: 1rem; 
+  vertical-align: middle; /
 }
 
 main {
@@ -131,47 +120,111 @@ main {
   gap: 2rem;
 }
 
-/* Hero: pic + name/tagline side by side */
+/* ── Hero ──────────────────────────────────────────── */
 .bio-hero {
   display: flex;
-  align-items: center;
-  gap: 2rem;
+  align-items: flex-start;
+  gap: 2.5rem;
   background: linear-gradient(135deg, #ffffff 0%, #eef4ff 100%);
   border: 3px solid var(--text-color);
   border-top: 6px solid var(--primary-color);
   border-radius: 12px;
-  padding: 2rem;
+  padding: 2rem 2.5rem;
   box-shadow: 6px 6px 0px 0px var(--text-color);
 }
 
-.profile-pic {
-  width: 150px;
-  height: 180px;
-  border-radius: 12px;
-  object-fit: cover;
-  border: 3px solid black;
+/* Profile pic wrapper — accent offset block sits behind via ::before */
+.hero-pic-wrapper {
+  position: relative;
   flex-shrink: 0;
 }
 
-.bio-hero-text h1 {
-  margin: 0 0 0.5rem 0;
-  font-size: 2.2rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  color: var(--text-color);
+.hero-pic-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 12px;
+  z-index: 0;
 }
 
-.bio-hero-text h2 {
-  margin: 0;
+.profile-pic {
+  position: relative;
+  z-index: 1;
+  width: 250px;
+  height: 300px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 3px solid black;
+  display: block;
+}
+
+/* Large display name */
+.bio-hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.bio-hero-text h1 {
+  font-family: 'Dela Gothic One', sans-serif;
+  margin: 0 0 0.5rem 0;
+  font-size: 4rem;
+  line-height: 0.92;
+  text-transform: uppercase;
+  color: var(--text-color);
+  letter-spacing: -1px;
+}
+
+/* Role strip — roles separated by amber dots */
+.role-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin: 0.9rem 0 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #555;
+}
+
+.role-dot {
+  color: var(--accent-color);
   font-size: 1.3rem;
-  font-weight: 600;
-  color: #666;
-  line-height: 1.5;
+  line-height: 1;
 }
 
 .tagline-highlight {
   color: var(--primary-color);
-  white-space: nowrap;
+}
+
+/* One-liner about paragraph */
+.hero-about {
+  margin: 0 0 1.25rem;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+/* Stat chips row */
+.hero-stats {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.stat-chip {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 2px solid var(--primary-color);
+  box-shadow: 2px 2px 0px 0px var(--accent-color);
 }
 
 /* Hero CTA Buttons */
@@ -380,6 +433,95 @@ main {
   box-shadow: 10px 10px 0px 0px var(--text-color);
 }
 
+/* ── Education Card Layout ─────────────────────── */
+.edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.edu-header-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.education-item h3 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-color);
+}
+
+.edu-meta {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.edu-degree {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.edu-date {
+  font-size: 0.85rem;
+  color: #888;
+  font-style: italic;
+}
+
+.edu-gpa-badge {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 900;
+  border: 2px solid var(--text-color);
+  box-shadow: 3px 3px 0px 0px var(--text-color);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.edu-section-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #aaa;
+  margin: 0.8rem 0 0.4rem;
+}
+
+.edu-awards, .edu-coursework {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.edu-award-badge {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border: 2px solid var(--primary-color);
+  box-shadow: 2px 2px 0px 0px var(--accent-color);
+}
+
+.edu-course-tag {
+  background-color: var(--bg-color);
+  color: #666;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 2px solid #ccc;
+}
+
 /* ── Experience Timeline ─────────────────────────────── */
 #experience-container {
   position: relative;
@@ -470,7 +612,7 @@ main {
   border-radius: 6px;
 }
 
-.experience-item h3, .education-item h3 {
+.experience-item h3 {
   margin-top: 0;
   margin-bottom: 0.2rem;
   color: var(--text-color);
@@ -506,21 +648,26 @@ main {
 
 /* Projects Grid */
 .projects-grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .project-card {
   background-color: #fff;
   border: 3px solid var(--text-color);
   border-radius: 12px;
-  padding: 1.5rem 2rem;
   box-shadow: 6px 6px 0px 0px var(--text-color);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  overflow: hidden;
 }
 
 .project-card:hover {
@@ -528,26 +675,74 @@ main {
   box-shadow: 10px 10px 0px 0px var(--text-color);
 }
 
+/* Project Screenshot Area */
+.project-screenshot {
+  width: 100%;
+  height: 200px;
+  border-bottom: 3px solid var(--text-color);
+  background-color: var(--bg-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-screenshot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-screenshot-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--bg-color) 0%, #e8f0fe 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Dela Gothic One', sans-serif;
+  font-size: 3.5rem;
+  color: var(--primary-color);
+  opacity: 0.35;
+  letter-spacing: 2px;
+}
+
+/* Project Content Body */
+.project-body {
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex: 1;
+}
+
 .project-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .project-card h3 {
   margin: 0;
   color: var(--text-color);
   font-weight: 800;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
+  line-height: 1.3;
+}
+
+.project-links {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 .project-github-link {
   color: var(--text-color);
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   text-decoration: none;
   border: 2px solid transparent;
   border-radius: 8px;
-  padding: 4px 8px;
+  padding: 4px 6px;
   transition: all 0.2s ease;
 }
 
@@ -562,24 +757,27 @@ main {
   color: var(--text-color);
   margin: 0;
   font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
 .project-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 0.25rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
 }
 
 .project-badge {
   background-color: var(--primary-color);
   color: #fff;
-  padding: 4px 14px;
+  padding: 4px 12px;
   border-radius: 6px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   border: 2px solid var(--text-color);
-  box-shadow: 3px 3px 0px 0px var(--text-color);
+  box-shadow: 2px 2px 0px 0px var(--text-color);
 }
 
 /* Skills List */
@@ -602,50 +800,79 @@ main {
   text-transform: uppercase;
 } */
 
+/* ── Skills Tabbed Interface ─────────────────────── */
 .skills-grid {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 0;
 }
 
-.skill-card {
+.skills-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1.25rem;
+}
+
+.skill-tab {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border: 2px solid var(--text-color);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.skill-tab:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.skill-tab.active {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--text-color);
+  box-shadow: 3px 3px 0px 0px var(--accent-color);
+}
+
+.skills-display {
   background-color: #fff;
   border: 3px solid var(--text-color);
   border-radius: 12px;
-  padding: 2rem;
+  padding: 1.5rem 2rem;
   box-shadow: 6px 6px 0px 0px var(--text-color);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: flex-start;
+  min-height: 110px;
 }
 
-.skills-list {
-  display: flex;
+.skills-panel {
+  display: none;
   flex-wrap: wrap;
-  gap: 12px 16px;
-  justify-content: flex-start;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  gap: 10px;
 }
 
-.skills-list li {
+.skills-panel.active {
+  display: flex;
+}
+
+.skill-badge {
   background-color: var(--bg-color);
   color: var(--text-color);
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 1rem;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 0.88rem;
   font-weight: 700;
   border: 2px solid var(--primary-color);
-  box-shadow: 3px 3px 0px 0px var(--accent-color);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 2px 2px 0px 0px var(--accent-color);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.skills-list li:hover {
+.skill-badge:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0px 0px var(--accent-color);
+  box-shadow: 4px 4px 0px 0px var(--accent-color);
 }
 
 /* Chat Sidebar Styles */

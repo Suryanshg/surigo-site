@@ -20,10 +20,11 @@ export const funFacts = {
     title: "Beyond the Code",
     intro: "When I'm not building systems or debugging issues, you'll find me...",
     items: [
-        { emoji: "⚽", label: "Cheering for Real Madrid!" },
-        { emoji: "🎱🥢", label: "Playing 8-Ball Pool" },
-        { emoji: "💪🏼", label: "Hitting the Gym" },
-        { emoji: "🍔", label: "Exploring Food" },
+        { emoji: "⚽", label: "Cheering for Real Madrid" },
+        { emoji: "💪🏼", label: "Hypertrophy Training" },
+        { emoji: "🍔", label: "Culinary Exploration" },
+        { emoji: "🎱", label: "Cue sports tactician" },
+        { emoji: "🧑‍🍳", label: "Kitchen Alchemist:" },
     ]
 };
 
@@ -34,32 +35,32 @@ export const experienceData = [
         company: "Visa Inc.",
         logoClass: "fa-brands fa-cc-visa",
         date: "July 2024 - June 2025",
-        description: "I spearheaded initiatives that merged enterprise-grade backend systems with cutting-edge Generative AI. A major focus of my work involved optimizing developer velocity by building intelligent internal tooling. For example, I engineered an Agentic AI CLI tool using Python and LangChain that automated Java code smell remediation via SonarQube reports, explicitly incorporating a human-in-the-loop mechanism so developers could steer or override the AI's fixes. I also prototyped an Agentic AI IntelliJ plugin for internal code search, leveraging LangChain, TreeSitter, and a MongoDB-backed indexing pipeline to ground LLM responses directly in our internal platform libraries.",
-        skills: ["TODO: Skill 1", "TODO: Skill 2", "TODO: Skill 3", "TODO: Skill 4", "TODO: Skill 5"]
+        description: "Engineered high-impact, full-stack developer tools and AI solutions to accelerate internal software workflows. Led the development of an agentic AI CLI tool utilizing Python and LangChain to automate Java code smell remediation, featuring a human-in-the-loop steering mechanism. Built a MongoDB-backed indexing pipeline and an IntelliJ plugin using TreeSitter to optimize repository code search. Additionally, developed a high-performance API simulator leveraging GraalVM and Spring WebFlux to mock complex HTTP endpoints. Spearheaded generative AI adoption through tech talks and architected a robust RAG chatbot utilizing GPT-4o to accurately surface insights from technical documentation.",
+        skills: ["RAG", "MongoDB", "Langchain", "Agentic AI & Prompt Engineering"]
     },
     {
         title: "Software Engineer",
         company: "Visa Inc.",
         logoClass: "fa-brands fa-cc-visa",
         date: "June 2022 - June 2024",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        skills: ["TODO: Skill 1", "TODO: Skill 2", "TODO: Skill 3", "TODO: Skill 4", "TODO: Skill 5"]
+        description: "Engineered high-performance, reactive Java microservices using Spring WebFlux for Visa’s multi-datacenter Alias Directory project, successfully processing 500+ TPS with sub-10ms P99 latency. Spearheaded rigorous load and performance testing via JMeter, optimizing system bottlenecks to boost throughput by 50% and reduce CPU utilization by 21%. Revolutionized development workflows by refactoring legacy codebases to cut build times by 72% and deploying automated Postman testing pipelines that dropped production bugs by 75%. Additionally, established comprehensive system observability utilizing Prometheus and Grafana, while embedding DevSecOps practices to achieve 90%+ repository test coverage and eliminate critical security vulnerabilities.",
+        skills: ["Java (Spring Boot / Spring WebFlux)", "Load Testing", "Prometheus & Grafana", "CI/CD Automation", "Latency & Throughput Optimization"]
     },
     {
         title: "Software Engineer Intern",
         company: "Visa Inc.",
         logoClass: "fa-brands fa-cc-visa",
         date: "May 2021 - August 2021",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        skills: ["TODO: Skill 1", "TODO: Skill 2", "TODO: Skill 3", "TODO: Skill 4", "TODO: Skill 5"]
+        description: "Conducted targeted performance testing on the Alias Directory project, isolating and optimizing critical bottlenecks in outbound HTTP call configurations. This system tuning successfully boosted application throughput by 25%. Additionally, driven by a commitment to engineering excellence, proactively audited codebase repositories to eliminate security hotspots, remediate software vulnerabilities, and clear technical code smells. Successfully drove comprehensive unit and integration test coverage across all assigned repositories to a robust baseline of at least 90%, significantly reinforcing platform reliability and software delivery standards prior to production deployment.",
+        skills: ["HTTP Architecture", "Vulnerability Remediation", "Code Quality Auditing", "Unit & Integration Testing"]
     },
     {
         title: "Software Engineer Intern",
         company: "Visa Inc.",
         logoClass: "fa-brands fa-cc-visa",
         date: "May 2020 - July 2020",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        skills: ["TODO: Skill 1", "TODO: Skill 2", "TODO: Skill 3", "TODO: Skill 4", "TODO: Skill 5"]
+        description: "Developed an proof-of-concept web application built to streamline the generation and delivery of personalized digital e-gift cards. Engineered the platform's backend ecosystem from scratch utilizing Java with Spring Boot, paired with a robust PostgreSQL database architecture for transactional storage. In addition to software development, conducted extensive emerging technology research and authored a comprehensive technical white paper. The publication proposed an innovative facial recognition-based biometric payment framework, analyzing security protocols and scalability constraints to drive forward Visa's long-term contactless payment strategies.",
+        skills: ["Java(Spring Boot)", "PostgreSQL", "RESTful APIs"]
     }
 ];
 
@@ -81,12 +82,12 @@ export const skillsData = [
         skillsList: ["MongoDB", "MySQL", "PostgreSQL", "Neo4j", "ChromaDB"]
     },
     {
-        skillType: "DevOps & Observability",
+        skillType: "DevOps",
         skillsList: ["Git", "Linux", "Docker", "GitHub Actions", "AWS", "GCP", "Azure", "Grafana", "Prometheus", "Splunk", "JMeter", "VisualVM"]
     },
     {
         skillType: "Agentic Engineering",
-        skillsList: ["Claude Code", "GitHub Copilot", "Aider"]
+        skillsList: ["Claude Code", "Antigravity CLI", "GitHub Copilot"]
     },
 
 ];
@@ -112,33 +113,36 @@ export const educationData = [
 
 export const projectsData = [
     {
+        title: "Soft Prompts Interpretability (Research)",
+        description: "Authored EMNLP-submitted research on translating continuous soft prompt embeddings into human-readable text using a LoRA fine-tuned Llama-3.1-8B model. Engineered massive data pipelines handling 2.75M+ synthetic tokens via vLLM and a custom SQLite schema, validating model interpretability through activation patching and ROUGE heatmaps.",
+        link: "",
+        pdfLink: "https://arxiv.org/pdf/2605.27642",
+        screenshot: "src/assets/images/SoftPromptsWorkflow.png", // e.g. "src/assets/screenshots/soft-prompts.png"
+        skills: ["LLM Fine-Tuning (LoRA)", "vLLM", "Dataset Engineering", "SQLite", "PyTorch", "Hugging Face"]
+    },
+    {
         title: "AniZenith",
-        description: "A modern web application built with React, Vite, and Node.js. Enables real-time data sync and user collaboration.",
-        link: "https://github.com/ShafathZ/AniZenithProject", // TODO: update or remove link
-        skills: ["TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill"]
+        description: "Architected a RAG-powered anime recommendation engine with a FastAPI backend, JavaScript frontend, and MongoDB Vector Search. Implemented a dual-inference cloud/local fallback engine and automated full deployment across multi-cloud infrastructure (AWS, GCP, Azure) via Docker, GitHub Actions CI/CD, and Prometheus/Grafana observability.",
+        link: "https://github.com/ShafathZ/AniZenithProject",
+        pdfLink: "",
+        screenshot: "src/assets/images/Anizenith.png", // e.g. "src/assets/screenshots/anizenith.png"
+        skills: ["Multi-Cloud Deployment (AWS / GCP / Azure)", "FastAPI", "GitHub Actions", "Docker", "MongoDB Vector Search"]
     },
     {
         title: "Yelp Restaurant QA Agent",
-        description: "A machine learning tool that predicts data trends using Python, scikit-learn, and Pandas.",
-        link: "https://github.com/Suryanshg/Yelp-Restaurant-QA-Agent", // TODO: add GitHub link
-        skills: ["TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill"]
-    },
-    {
-        title: "Soft Prompt Translator",
-        description: "A responsive portfolio template designed to be completely customizable and lightweight.",
-        link: "", // TODO: add GitHub link
-        skills: ["TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill"]
+        description: "Architected a multi-agent Graph RAG system using LangGraph and Gemini to dynamically execute Cypher searches on a Neo4j knowledge graph built from Yelp data. Containerized the pipeline via Docker with strict read-only LLM tool constraints, achieving a ~3x improvement in factual accuracy over standard RAG baselines via an LLM-as-a-Judge evaluation framework.",
+        link: "https://github.com/Suryanshg/Yelp-Restaurant-QA-Agent",
+        pdfLink: "",
+        screenshot: "src/assets/images/AgenticGraphRAG.png", // e.g. "src/assets/screenshots/yelp-qa.png"
+        skills: ["LangGraph", "Neo4j", "Graph RAG", "Agentic RAG", "Docker", "LLM-as-a-Judge Eval"]
     },
     {
         title: "AI Car Racing",
-        description: "A responsive portfolio template designed to be completely customizable and lightweight.",
-        link: "", // TODO: add GitHub link
-        skills: ["TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill"]
-    },
-    {
-        title: "ShakespeareGPT",
-        description: "A responsive portfolio template designed to be completely customizable and lightweight.",
-        link: "", // TODO: add GitHub link
-        skills: ["TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill", "TODO: skill"]
-    },
+        description: "Developed and trained competitive Proximal Policy Optimization (PPO) and Advantage Actor-Critic (A2C) agents using PyTorch and Gymnasium. Engineered a custom reward-shaping wrapper that boosted mean rewards by 62%, testing diverse CNN, attention, and residual architectures to achieve an average evaluation score of 829.",
+        link: "https://github.com/Suryanshg/AI-Car-Racing",
+        pdfLink: "",
+        screenshot: "src/assets/images/AI-CarRacing.png", // e.g. "src/assets/screenshots/ai-car-racing.png"
+        skills: ["Deep Reinforcement Learning (PPO / A2C)", "PyTorch", "OpenAI Gymnasium", "Reward Shaping"]
+    }
 ];
+
