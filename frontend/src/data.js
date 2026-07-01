@@ -31,7 +31,7 @@ export const funFacts = {
         { emoji: "💪🏼", label: "Hypertrophy Training" },
         { emoji: "🍔", label: "Culinary Exploration" },
         { emoji: "🎱", label: "Cue sports tactician" },
-        { emoji: "🧑‍🍳", label: "Kitchen Alchemist:" },
+        { emoji: "🧑‍🍳", label: "Kitchen Alchemist" },
     ]
 };
 
