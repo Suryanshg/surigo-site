@@ -1,7 +1,12 @@
 import './style.css'
-import { funFacts, experienceData, skillsData, educationData, projectsData } from './data.js';
+import { heroAboutText, funFacts, experienceData, skillsData, educationData, projectsData } from './data.js';
 
 // --- Populate Content Dynamically ---
+
+// Bio Section Text
+const bioSectionContainer = document.getElementById('hero-about');
+bioSectionContainer.innerHTML = heroAboutText;
+
 
 // Fun Section
 const funSectionContainer = document.getElementById('fun-section-container');
