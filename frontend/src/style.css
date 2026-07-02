@@ -39,23 +39,15 @@ header {
 }
 
 nav {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
-}
-
-.title-name {
-  font-size: 1.5rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  justify-self: center;
 }
 
 .nav-links {
   display: flex;
   gap: 5px;
-  justify-self: start;
 }
 
 .nav-link {
@@ -79,7 +71,6 @@ nav {
 .contact-links {
   display: flex;
   gap: 5px;
-  justify-self: end;
 }
 
 .contact-link {
@@ -100,11 +91,157 @@ nav {
   transform: translate(-2px, -2px);
 }
 
-/* Responsive: stack navbar on small screens */
-nav i { 
-  font-size: 1rem; 
+nav i {
+  font-size: 1rem;
   vertical-align: middle;
 }
+
+/* ── Hamburger Button (mobile only) ───────────────── */
+.hamburger-btn {
+  display: none; /* hidden on desktop */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 6px;
+  background: transparent;
+  border: 2px solid var(--text-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.hamburger-btn:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.hamburger-btn:hover .hamburger-bar {
+  background-color: #fff;
+}
+
+.hamburger-bar {
+  display: block;
+  width: 20px;
+  height: 2.5px;
+  background-color: var(--text-color);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform-origin: center;
+}
+
+/* Animate to ✕ when open */
+.hamburger-btn.open .hamburger-bar:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+.hamburger-btn.open .hamburger-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger-btn.open .hamburger-bar:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* ── Mobile Menu Drawer ────────────────────────────── */
+.mobile-menu {
+  display: none; /* always hidden — overridden in mobile MQ */
+  flex-direction: column;
+  gap: 4px;
+  padding: 0.75rem 1rem 1rem;
+  border-top: 2px solid #eee;
+  background-color: #fff;
+  /* Slide-in animation */
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease;
+}
+
+.mobile-menu.open {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: all 0.18s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link:active {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--text-color);
+  box-shadow: 3px 3px 0px 0px var(--text-color);
+  transform: translate(-1px, -1px);
+}
+
+.mobile-menu-divider {
+  height: 2px;
+  background-color: #eee;
+  margin: 4px 0;
+  border-radius: 2px;
+}
+
+/* ── Mobile Breakpoint ≤768px ──────────────────────── */
+@media (max-width: 768px) {
+  /* Slim header — reduce bottom padding to pull divider line up */
+  header {
+    padding: 0.5rem 5rem;
+    padding-bottom: 0px;
+    margin-bottom: 0;
+  }
+
+  /* Nav links on left, hamburger on right */
+  nav {
+    justify-content: space-between;
+  }
+
+  /* Show nav-links as icon-only to save space */
+  .nav-links {
+    display: flex;
+    gap: 2px;
+  }
+
+  .nav-links .nav-link {
+    font-size: 0;        /* hides text */
+    padding: 4px 10px;
+  }
+
+  .nav-links .nav-link i {
+    font-size: 1.05rem;  /* restores icon */
+  }
+
+  /* Hide desktop contact links (they're in the hamburger) */
+  .contact-links {
+    display: none;
+  }
+
+  /* Show hamburger */
+  .hamburger-btn {
+    display: flex;
+  }
+
+  /* Show the mobile menu drawer */
+  .mobile-menu {
+    display: flex;
+  }
+
+  /* scroll-margin-top handled by JS (syncScrollMargins via nav-link clicks) */
+}
+
 
 main {
   max-width: 850px;
@@ -522,69 +659,82 @@ main {
   border: 2px solid #ccc;
 }
 
-/* ── Experience Timeline ─────────────────────────────── */
+/* ── Experience Accordion ─────────────────────────────── */
 #experience-container {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   padding: 0.5rem 0;
 }
 
-/* Vertical center line */
-#experience-container::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background-color: var(--text-color);
-  transform: translateX(-50%);
-  border-radius: 2px;
-  z-index: -1; /* place behind cards and connectors */
-}
-
-/* Each card occupies ~half the width with a 28px gap to the center */
 #experience-container .experience-item {
-  width: calc(50% - 28px);
-}
-
-/* Even items sit on the right side */
-#experience-container .experience-item:nth-child(even) {
-  margin-left: calc(50% + 28px);
-}
-
-/* Connector Line — simple horizontal line connecting card to timeline */
-#experience-container .experience-item::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 28px; /* equal to the gap size */
-  height: 4px;
-  background-color: var(--text-color);
-  z-index: 1;
-}
-
-/* Left side cards connector starts on the right side and extends right */
-#experience-container .experience-item:nth-child(odd)::after {
-  right: -28px;
-  transform: translateY(-50%);
-  transform-origin: left center;
-}
-
-/* Right side cards connector starts on the left side and extends left */
-#experience-container .experience-item:nth-child(even)::after {
-  left: -28px;
-  transform: translateY(-50%);
-  transform-origin: right center;
+  width: 100%;
+  margin: 0;
+  transition: all 0.3s ease;
 }
 
 .experience-header {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.2rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
   color: var(--text-color);
-  margin-bottom: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem; /* Slight padding to make hit area better */
+  margin: -0.5rem; /* Offset padding to keep alignment */
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
 }
+
+.experience-header:hover {
+  background-color: #f5f5f5;
+}
+
+.exp-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.exp-chevron {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.experience-item.open .exp-chevron {
+  transform: rotate(-180deg);
+}
+
+.exp-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.exp-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.exp-company {
+  font-size: 0.95rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.exp-date {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.exp-body {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px dashed #ddd;
+}
+
 
 .exp-left {
   display: flex;
@@ -1008,4 +1158,157 @@ main {
   box-shadow: 4px 4px 0px 0px var(--text-color);
 }
 
+/* ── Chat — Mobile overrides ───────────────────────── */
+@media (max-width: 768px) {
+  /* Smaller, closer-to-corner toggle button */
+  #chat-toggle-btn {
+    bottom: 16px;
+    right: 16px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    box-shadow: 4px 4px 0px 0px var(--text-color);
+  }
 
+  /* Full-width bottom sheet instead of a floating card */
+  #chat-sidebar {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 16px 16px 0 0;  /* rounded top corners only */
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    box-shadow: 0 -4px 0px 0px var(--text-color);
+  }
+
+  /* Taller chat box to use the extra vertical space */
+  #chat-box {
+    height: 45vh;
+  }
+}
+
+/* ── Hero section mobile overrides (must be AFTER desktop rules) ── */
+@media (max-width: 768px) {
+  main {
+    padding: 0.5rem;
+  }
+
+  #bio {
+    padding: 1rem 0;
+    gap: 1.25rem;
+  }
+
+  .bio-hero {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.25rem 1rem;
+  }
+
+  .profile-pic {
+    width: 160px;
+    height: 195px;
+  }
+
+  .bio-hero-text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .bio-hero-text h1 {
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+
+  .role-strip {
+    justify-content: center;
+  }
+
+  .hero-about {
+    max-width: 100%;
+  }
+
+  .hero-stats {
+    justify-content: center;
+  }
+}
+
+/* ── "Beyond the Code" section mobile hardening ── */
+@media (max-width: 768px) {
+  .fun-section {
+    padding: 1.25rem 1rem;
+  }
+
+  /* 2-column grid for consistent layout instead of fragile flex-wrap */
+  .fun-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .fun-item {
+    justify-content: center;
+    font-size: 0.88rem;
+    padding: 8px 10px;
+  }
+}
+
+/* ── Defensive tweaks: Education, Projects, Skills (Issue #4) ── */
+@media (max-width: 768px) {
+  /* Reduce section padding on mobile */
+  .content-section {
+    padding: 1.75rem 0;
+  }
+
+  /* Education: stack institution name + GPA badge vertically on small screens
+     so the GPA badge doesn't get crushed against a long institution name */
+  .edu-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .edu-gpa-badge {
+    align-self: flex-start; /* left-align badge under the name */
+  }
+
+  /* Tighter card padding on mobile */
+  .education-item {
+    padding: 1.25rem 1rem;
+  }
+
+  /* Prevent long award/course text from overflowing badge */
+  .edu-award-badge,
+  .edu-course-tag {
+    word-break: break-word;
+  }
+
+  /* Projects: tighter card body padding */
+  .project-body {
+    padding: 1.25rem 1rem;
+  }
+
+  /* Experience accordion adjustments */
+  .experience-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .exp-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* Skills: ensure tab buttons wrap cleanly and fill space */
+  .skill-tab {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .skills-display {
+    padding: 1.25rem 1rem;
+  }
+}

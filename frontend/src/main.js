@@ -19,7 +19,7 @@ funSectionContainer.innerHTML = `
 
 // Experience
 const experienceContainer = document.getElementById('experience-container');
-experienceData.forEach(exp => {
+experienceData.forEach((exp, index) => {
     // allow either a FontAwesome class (`logoClass`) or an image path (`logoPath`)
     let logoHTML = '';
     if (exp.logoClass) {
@@ -29,20 +29,59 @@ experienceData.forEach(exp => {
     }
 
     const expSkillBadges = (exp.skills || []).map(s => `<span class="exp-skill-badge">${s}</span>`).join('');
+    
+    // First item is open by default
+    const isOpen = index === 0;
 
-    experienceContainer.innerHTML += `
-        <div class="experience-item">
-            <div class="experience-header">
-                <div class="exp-left">
-                    ${logoHTML}
-                    <span class="exp-title"><strong>${exp.title}</strong> | <strong>${exp.company}</strong></span>
+    const expItem = document.createElement('div');
+    expItem.className = `experience-item ${isOpen ? 'open' : ''}`;
+    expItem.innerHTML = `
+        <div class="experience-header" tabindex="0" role="button" aria-expanded="${isOpen}">
+            <div class="exp-left">
+                ${logoHTML}
+                <div class="exp-title-group">
+                    <span class="exp-title"><strong>${exp.title}</strong></span>
+                    <span class="exp-company">${exp.company}</span>
                 </div>
-                <span><em>${exp.date}</em></span>
             </div>
+            <div class="exp-right">
+                <span class="exp-date"><em>${exp.date}</em></span>
+                <i class="fa-solid fa-chevron-down exp-chevron"></i>
+            </div>
+        </div>
+        <div class="exp-body" style="display: ${isOpen ? 'block' : 'none'};">
             <p>${exp.description}</p>
             ${expSkillBadges ? `<div class="exp-skills">${expSkillBadges}</div>` : ''}
         </div>
     `;
+
+    // Add click listener for accordion toggle
+    const header = expItem.querySelector('.experience-header');
+    const body = expItem.querySelector('.exp-body');
+    
+    header.addEventListener('click', () => {
+        const currentlyOpen = expItem.classList.contains('open');
+        
+        if (currentlyOpen) {
+            expItem.classList.remove('open');
+            body.style.display = 'none';
+            header.setAttribute('aria-expanded', 'false');
+        } else {
+            expItem.classList.add('open');
+            body.style.display = 'block';
+            header.setAttribute('aria-expanded', 'true');
+        }
+    });
+
+    // Keyboard support (Enter/Space)
+    header.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            header.click();
+        }
+    });
+
+    experienceContainer.appendChild(expItem);
 });
 
 // Education
@@ -163,3 +202,45 @@ chatToggleBtn.addEventListener('click', () => {
 chatCloseBtn.addEventListener('click', () => {
     chatSidebar.classList.add('hidden');
 });
+
+// --- Hamburger Menu Logic ---
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+hamburgerBtn.addEventListener('click', () => {
+    const isOpen = hamburgerBtn.classList.toggle('open');
+    mobileMenu.classList.toggle('open', isOpen);
+    hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    mobileMenu.setAttribute('aria-hidden', !isOpen);
+});
+
+// Contact links in the drawer — just close the menu on click
+mobileMenu.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+    });
+});
+
+// Section nav links — manual scroll on mobile to account for sticky header
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href === '#') return; // About — scrolls to top naturally
+        if (window.innerWidth > 768) return; // desktop uses scroll-margin-top CSS
+
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (!target) return;
+
+        requestAnimationFrame(() => {
+            const headerH = document.querySelector('header').offsetHeight;
+            const targetTop = target.getBoundingClientRect().top + window.scrollY - headerH;
+            window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+        });
+    });
+});
+
+
