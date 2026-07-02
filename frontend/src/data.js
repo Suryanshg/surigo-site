@@ -5,23 +5,11 @@ import imgAnizenith from './assets/images/Anizenith.png';
 import imgAgenticGraphRAG from './assets/images/AgenticGraphRAG.png';
 import imgAICarRacing from './assets/images/AI-CarRacing.png';
 
-export const bioSections = [
-    {
-        icon: "fa-solid fa-user",
-        title: "About Me",
-        content: "I am currently pursuing an MS in CS at Worcester Polytechnic Institute, building upon my BS in CS from the same institution. Before returning to academia, I spent three years engineering enterprise backend systems at Visa Inc. I specialize in building highly available, distributed architectures, having engineered reactive microservices and Agentic AI solutions."
-    },
-    {
-        icon: "fa-solid fa-lightbulb",
-        title: "Problem Solver",
-        content: "My technical interests lie in scalable software engineering and applied AI / ML. I thrive on translating theoretical concepts into production-ready systems. My recent academic research includes authoring a paper on soft prompt interpretability—currently under review for the EMNLP conference—and architecting an Agentic Graph RAG system for Question-Answering on Yelp Dataset. At Visa Inc., I have developed Agentic AI developer tools utilizing LangChain and Python, including a CLI for automated code remediation and an IntelliJ plugin for internal code search."
-    },
-    {
-        icon: "fa-solid fa-bug",
-        title: "Relentless Debugger",
-        content: "I am obsessed with system stability, observability, and optimization. I have a proven track record of identifying and resolving complex infrastructure bottlenecks through targeted performance testing; in one instance, this approach increased system throughput by ~50% and cut P99 latencies by ~30%. Whether I am refactoring legacy Java codebases to slash build times by 72% or engineering comprehensive observability pipelines using Prometheus and Grafana, I build systems designed to perform flawlessly under pressure."
-    }
-];
+export const heroAboutText = `
+MS CS student at WPI building on 3 years of engineering enterprise software at Visa Inc. 
+Specializing in scalable distributed systems and applied AI — 
+currently researching LLM Interpretability and ASR Correction Intelligence."
+`
 
 export const funFacts = {
     title: "Beyond the Code",

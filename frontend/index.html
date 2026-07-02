@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- <link rel="stylesheet" href="/src/style.css"> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suryansh Goyal | Personal Website</title>
@@ -10,13 +9,13 @@
     <!-- Dela Gothic One — display font for headings -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One" rel="stylesheet">
 </head>
 <body>
 
     <header>
         <nav>
-
+            <!-- Desktop: nav-links on left, contact-links on right -->
             <div class="nav-links">
                 <a href="#" class="nav-link">
                     <i class="fa-solid fa-user"></i>
@@ -40,10 +39,6 @@
                 </a>
             </div>
 
-            <div class="title-name">
-                <strong>SURYANSH GOYAL</strong>
-            </div>
-
             <div class="contact-links">
                 <a href="https://www.linkedin.com/in/suryanshgoyal/" target="_blank" class="contact-link">
                     <i class="fa-brands fa-linkedin"></i>
@@ -58,7 +53,27 @@
                     Email
                 </a>
             </div>
+
+            <!-- Mobile only: hamburger toggle -->
+            <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
         </nav>
+
+        <!-- Mobile drawer — contacts only -->
+        <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+            <a href="https://www.linkedin.com/in/suryanshgoyal/" target="_blank" class="mobile-nav-link">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://www.github.com/Suryanshg" target="_blank" class="mobile-nav-link">
+                <i class="fa-brands fa-github"></i> GitHub
+            </a>
+            <a href="mailto:suryanshg47@gmail.com" class="mobile-nav-link">
+                <i class="fa-solid fa-envelope"></i> Email
+            </a>
+        </div>
     </header>
 
     <main>
@@ -78,13 +93,9 @@
                         <span class="role-dot">·</span>
                         <span class="tagline-highlight">Relentless Debugger</span>
                     </div>
-                    <p class="hero-about">
-                        MS CS student at WPI building on 3 years of engineering enterprise software at Visa Inc. 
-                        Specializing in scalable distributed systems and applied AI — currently researching LLM interpretability and ASR Correction Intelligence.
-                    </p>
+                    <div class="hero-about" id="hero-about"></div>
                     <div class="hero-stats">
                         <div class="stat-chip"><strong>Ex-SWE</strong> (3 yrs) @ Visa Inc.</div>
-                        <!-- <div class="stat-chip"><strong>4.0 GPA</strong> @ WPI</div> -->
                         <div class="stat-chip"><strong>EMNLP Submission</strong> (In-Review)</div>
                     </div>
                 </div>
@@ -117,25 +128,6 @@
             <h2>Skills</h2>
             <div id="skills-grid" class="skills-grid"></div>
         </section>
-
-        <!-- Contact Section -->
-        <!-- <section id="contact" class="content-section">
-            <h2>Contact Info</h2>
-            <div class="contact-links">
-                <a href="mailto:suryanshg47@gmail.com" class="contact-link">
-                    <i class="fa-solid fa-envelope"></i>
-                    Email
-                </a>
-                <a href="https://www.linkedin.com/in/suryanshgoyal/" target="_blank" class="contact-link">
-                    <i class="fa-brands fa-linkedin"></i>
-                    LinkedIn
-                </a>
-                <a href="https://www.github.com/Suryanshg" target="_blank" class="contact-link">
-                    <i class="fa-brands fa-github"></i>
-                    GitHub
-                </a>
-            </div>
-        </section> -->
 
     </main>
 
