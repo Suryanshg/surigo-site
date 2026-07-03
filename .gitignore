@@ -25,6 +25,9 @@ dist-ssr
 
 
 # Backend Specific gitignores
+# pycache
+**/__pycache__
+
 # Ignore Data (except for gitkeep)
 **/data/*
 !**/data/.gitkeep

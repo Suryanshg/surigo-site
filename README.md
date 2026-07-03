@@ -10,7 +10,6 @@ npm create vite@latest . -- --template vanilla
 
 
 ## TODOs
-1. Make UI Mobile Friendly
 2. Backend Starter
 3. Backend Deployment research
 4. Backend LLM Model for Chatbot (Gemma / Qwen)
