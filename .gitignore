@@ -22,3 +22,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# Backend Specific gitignores
+# Ignore Data (except for gitkeep)
+**/data/*
+!**/data/.gitkeep
+
+# Ignore virtual envs
+**/.venv
+
+# Ignore Environ Variable Files
+**/.env
